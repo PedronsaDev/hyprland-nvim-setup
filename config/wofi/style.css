@@ -1,0 +1,50 @@
+@import url("/home/pedronsa/.config/theme.css");
+
+/* Global Reset: Sharp edges, monospace font */
+* {
+    font-family: "Terminus", "JetBrains Mono", monospace;
+    font-size: 14px;
+    border-radius: 0px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+/* The Main Window: Uses central palette for background and border */
+window {
+    background-color: @background;
+    border: 2px solid @accent;
+}
+
+/* The Search Bar */
+#input {
+    margin: 10px;
+    padding: 8px;
+    background-color: @background; /* Slightly lighter than window using palette */
+    color: @accent; /* Accent color for typed text */
+    border: 1px solid @muted; /* Secondary accent for the border */
+}
+
+/* The List of Apps */
+#inner-box {
+    margin: 5px 10px 10px 10px;
+    background-color: @background;
+}
+
+#outer-box {
+    background-color: @background;
+}
+
+/* Individual App Entries */
+#entry {
+    padding: 5px;
+    color: @foreground; /* Foreground from central palette for unselected text */
+}
+
+/* The Highlighted App */
+#entry:selected {
+    background-color: @background;
+    color: @accent;
+    font-weight: bold;
+    border-left: 3px solid @red; /* Alert color for strong marker */
+}

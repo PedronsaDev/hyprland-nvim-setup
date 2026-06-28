@@ -1,0 +1,19 @@
+# Run in application launcher mode
+mode=drun
+
+# Completely disable icons for that pure text "data stream" look
+allow_images=false
+
+# Make the search bar look like your custom terminal prompt
+prompt=>
+
+# Set the default terminal to foot
+term=foot
+
+# Structural settings: fixed width, 10 lines max, centered
+width=400
+lines=10
+location=center
+hide_scroll=true
+matching=multi-contains
+close_on_focus_loss=true

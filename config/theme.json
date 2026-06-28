@@ -1,0 +1,18 @@
+{
+  "name": "kanagawa_dragon",
+  "nvim_theme": "kanagawa-dragon",
+  "nvim_plugin": "rebelot/kanagawa.nvim",
+  "background": "181616",
+  "background_alt": "282727",
+  "foreground": "c5c9c5",
+  "accent": "8a9a7b",
+  "muted": "727169",
+  "black": "0d0c0c",
+  "red": "c4746e",
+  "green": "8a9a7b",
+  "yellow": "c4b28a",
+  "blue": "8ba4b0",
+  "magenta": "a292a3",
+  "cyan": "8ea4a2",
+  "white": "c5c9c5"
+}

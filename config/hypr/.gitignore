@@ -1,0 +1,45 @@
+# Hyprland Config .gitignore
+
+# System and editor files
+.DS_Store
+.swp
+.swo
+*~
+*.swp
+*.vim
+.vscode/
+.idea/
+*.iml
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*backup
+
+# Logs
+*.log
+logs/
+
+# Wallpapers and media (personal files)
+Pictures/
+wallpapers/
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Environment-specific files
+.env
+.env.local
+
+# Cache files
+.cache/
+__pycache__/
+
+# Session files
+.session
+
+# OS-specific
+Thumbs.db
+.directory
