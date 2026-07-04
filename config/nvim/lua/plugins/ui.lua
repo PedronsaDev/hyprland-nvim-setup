@@ -33,10 +33,62 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
+      -- Read theme.json for exact hex colors
+      local theme_json_path = vim.fn.expand("~/.config/theme.json")
+      local json_ok, theme_data = pcall(function()
+        local content = table.concat(vim.fn.readfile(theme_json_path), "\n")
+        return vim.fn.json_decode(content)
+      end)
+
+      local lualine_theme = 'auto'
+      if json_ok and theme_data then
+        local bg = '#' .. theme_data.background
+        local fg = '#' .. theme_data.foreground
+        local accent = '#' .. theme_data.accent
+        local muted = '#' .. theme_data.muted
+        local red = '#' .. (theme_data.red or 'c4746e')
+        local blue = '#' .. (theme_data.blue or '8ba4b0')
+        local yellow = '#' .. (theme_data.yellow or 'c4b28a')
+        local magenta = '#' .. (theme_data.magenta or 'a292a3')
+
+        lualine_theme = {
+          normal = {
+            a = { bg = accent, fg = bg, bold = true },
+            b = { bg = muted, fg = fg },
+            c = { bg = bg, fg = fg },
+          },
+          insert = {
+            a = { bg = blue, fg = bg, bold = true },
+            b = { bg = muted, fg = fg },
+            c = { bg = bg, fg = fg },
+          },
+          visual = {
+            a = { bg = magenta, fg = bg, bold = true },
+            b = { bg = muted, fg = fg },
+            c = { bg = bg, fg = fg },
+          },
+          replace = {
+            a = { bg = red, fg = bg, bold = true },
+            b = { bg = muted, fg = fg },
+            c = { bg = bg, fg = fg },
+          },
+          command = {
+            a = { bg = yellow, fg = bg, bold = true },
+            b = { bg = muted, fg = fg },
+            c = { bg = bg, fg = fg },
+          },
+          inactive = {
+            a = { bg = bg, fg = muted, bold = true },
+            b = { bg = bg, fg = muted },
+            c = { bg = bg, fg = muted },
+          },
+        }
+      end
+
       require('lualine').setup {
         options = {
-          theme = nvim_theme:match('kanagawa') and 'kanagawa' or 'auto',
-          component_separators = { left = '|', right = '|' },
+          theme = lualine_theme,
+          component_separators = { left = '│', right = '│' },
           section_separators = { left = '', right = '' },
           globalstatus = true,
         },

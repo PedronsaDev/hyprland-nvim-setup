@@ -34,24 +34,25 @@
     mouse_middle_click = do_action
     mouse_right_click = close_all
     frame_width = 2
+    gap_size = 6
 
 [experimental]
     per_monitor_dpi = false
 
 [urgency_low]
     background = "${background_hex}"
-    foreground = "${foreground_hex}"
+    foreground = "${muted_hex}"
     frame_color = "${muted_hex}"
-    timeout = 10
+    timeout = 5
 
 [urgency_normal]
     background = "${background_hex}"
     foreground = "${foreground_hex}"
     frame_color = "${accent_hex}"
-    timeout = 15
+    timeout = 8
 
-[urgency_high]
+[urgency_critical]
     background = "${background_hex}"
-    foreground = "${red_hex}"
+    foreground = "${foreground_hex}"
     frame_color = "${red_hex}"
-    timeout = 0
+    timeout = 15

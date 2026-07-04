@@ -34,24 +34,25 @@
     mouse_middle_click = do_action
     mouse_right_click = close_all
     frame_width = 2
+    gap_size = 6
 
 [experimental]
     per_monitor_dpi = false
 
 [urgency_low]
     background = "#181616"
-    foreground = "#c5c9c5"
+    foreground = "#727169"
     frame_color = "#727169"
-    timeout = 10
+    timeout = 5
 
 [urgency_normal]
     background = "#181616"
     foreground = "#c5c9c5"
     frame_color = "#8a9a7b"
-    timeout = 15
+    timeout = 8
 
-[urgency_high]
+[urgency_critical]
     background = "#181616"
-    foreground = "#c4746e"
+    foreground = "#c5c9c5"
     frame_color = "#c4746e"
-    timeout = 0
+    timeout = 15

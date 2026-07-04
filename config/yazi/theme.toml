@@ -1,15 +1,16 @@
 # ~/.config/yazi/theme.toml
 
 [mgr]
-cwd = { fg = "#8ba4b0" } # Blue
-
-# Hovered item
-hovered         = { fg = "#181616", bg = "#8a9a7b", bold = true } # Background on Green (Accent)
-preview_hovered = { underline = true }
+cwd = { fg = "#8a9a7b" } # Accent
 
 # Find
 find_keyword  = { fg = "#c4b28a" } # Yellow
 find_position = { fg = "#a292a3", bg = "reset" } # Magenta
+
+[indicator]
+parent  = { fg = "#181616", bg = "#727169" }
+current = { fg = "#181616", bg = "#8a9a7b", bold = true }
+preview = { underline = true }
 
 # Marker
 marker_copied   = { fg = "#8a9a7b", bg = "#8a9a7b" } # Green
@@ -18,25 +19,19 @@ marker_selected = { fg = "#8ea4a2", bg = "#8ea4a2" } # Cyan
 
 [border]
 type = "plain"
-style  = { fg = "#8a9a7b" }
+style  = { fg = "#727169" }
 
 [tabs]
-# Tab - Now uses Green for the active tab (tab_width is deleted!)
+# Tab - Now uses Accent for the active tab
 active   = { fg = "#181616", bg = "#8a9a7b" }
 inactive = { fg = "#c5c9c5", bg = "#727169" }
 
 
 
 [status]
-# Raw ASCII separators instead of Nerd Fonts
-separator_open  = "["
-separator_close = "]"
-separator_style = { fg = "#8a9a7b", bg = "#181616" }
-
-# Modes
-mode_normal = { fg = "#181616", bg = "#8a9a7b", bold = true }
-mode_select = { fg = "#181616", bg = "#8ea4a2", bold = true }
-mode_unset  = { fg = "#181616", bg = "#a292a3", bold = true }
+# Flat rectangular spacers to match our retro look (no rounded capsules)
+sep_left  = { open = " [", close = "] " }
+sep_right = { open = " [", close = "] " }
 
 # Progress
 progress_label  = { fg = "#c5c9c5", bold = true }
@@ -44,31 +39,41 @@ progress_normal = { fg = "#8ba4b0", bg = "#727169" }
 progress_error  = { fg = "#c4746e", bg = "#727169" }
 
 # Permissions
-permissions_t = { fg = "#8ba4b0" } # Blue
-permissions_r = { fg = "#c4b28a" } # Yellow
-permissions_w = { fg = "#c4746e" } # Red
-permissions_x = { fg = "#8a9a7b" } # Green
-permissions_s = { fg = "#727169" } # Accent Alt
+perm_sep   = { fg = "#727169" }
+perm_type  = { fg = "#8ba4b0" }
+perm_read  = { fg = "#c4b28a" }
+perm_write = { fg = "#c4746e" }
+perm_exec  = { fg = "#8a9a7b" }
+
+[mode]
+normal_main = { fg = "#181616", bg = "#8a9a7b", bold = true }
+normal_alt  = { fg = "#c5c9c5", bg = "#727169" }
+
+select_main = { fg = "#181616", bg = "#8ea4a2", bold = true }
+select_alt  = { fg = "#c5c9c5", bg = "#727169" }
+
+unset_main  = { fg = "#181616", bg = "#a292a3", bold = true }
+unset_alt   = { fg = "#c5c9c5", bg = "#727169" }
 
 [select]
-border   = { fg = "#8ba4b0" }
+border   = { fg = "#727169" }
 active   = { fg = "#8a9a7b", bold = true }
 inactive = { fg = "#c5c9c5" }
 
 [input]
-border   = { fg = "#8a9a7b" } # Green border
+border   = { fg = "#727169" } # Muted border
 title    = { fg = "#8a9a7b", bold = true }
 value    = { fg = "#c5c9c5", bg = "#181616" } # Explicit dark bg, light text (Fixes invisible text)
-selected = { fg = "#181616", bg = "#8a9a7b", bold = true } # Dark text on Green bg
+selected = { fg = "#181616", bg = "#8a9a7b", bold = true } # Dark text on Accent bg
 
 [completion]
-border   = { fg = "#8a9a7b" } # Green border
-active   = { fg = "#181616", bg = "#8a9a7b", bold = true } # Dark text on Green bg
+border   = { fg = "#727169" } # Muted border
+active   = { fg = "#181616", bg = "#8a9a7b", bold = true } # Dark text on Accent bg
 inactive = { fg = "#c5c9c5", bg = "#181616" }
 
 [which]
 mask            = { bg = "#181616" } # Explicit dark background to prevent bleed-through
-cand            = { fg = "#8a9a7b", bold = true } # The key to press (Green)
+bin             = { fg = "#8a9a7b", bold = true } # The key to press (Accent)
 rest            = { fg = "#c5c9c5" } # The action description (White)
 desc            = { fg = "#a292a3" }
 separator       = " -> " # Raw ASCII arrow
@@ -77,7 +82,7 @@ separator_style = { fg = "#727169" }
 [filetype]
 rules = [
     # Directories
-    { mime = "inode/directory", fg = "#8ba4b0" }, # Blue
+    { mime = "inode/directory", fg = "#8a9a7b" }, # Accent
 
     # Executables and Scripts
     { mime = "application/*executable", fg = "#8a9a7b" }, # Green
@@ -93,5 +98,6 @@ rules = [
     { mime = "application/x-7z-compressed", fg = "#a292a3" },
 
     # Fallback
-    { url = "*", fg = "#8a9a7b" }, # Default foreground
+    { url = "*/", fg = "#8a9a7b" }, # Directories
+    { url = "*", fg = "#c5c9c5" }, # Default foreground
 ]

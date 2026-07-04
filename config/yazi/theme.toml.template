@@ -1,15 +1,16 @@
 # ~/.config/yazi/theme.toml
 
 [mgr]
-cwd = { fg = "${blue}" } # Blue
-
-# Hovered item
-hovered         = { fg = "${background}", bg = "${green}", bold = true } # Background on Green (Accent)
-preview_hovered = { underline = true }
+cwd = { fg = "${accent}" } # Accent
 
 # Find
 find_keyword  = { fg = "${yellow}" } # Yellow
 find_position = { fg = "${magenta}", bg = "reset" } # Magenta
+
+[indicator]
+parent  = { fg = "${background}", bg = "${muted}" }
+current = { fg = "${background}", bg = "${accent}", bold = true }
+preview = { underline = true }
 
 # Marker
 marker_copied   = { fg = "${green}", bg = "${green}" } # Green
@@ -18,25 +19,19 @@ marker_selected = { fg = "${cyan}", bg = "${cyan}" } # Cyan
 
 [border]
 type = "plain"
-style  = { fg = "${green}" }
+style  = { fg = "${muted}" }
 
 [tabs]
-# Tab - Now uses Green for the active tab (tab_width is deleted!)
-active   = { fg = "${background}", bg = "${green}" }
+# Tab - Now uses Accent for the active tab
+active   = { fg = "${background}", bg = "${accent}" }
 inactive = { fg = "${foreground}", bg = "${muted}" }
 
 
 
 [status]
-# Raw ASCII separators instead of Nerd Fonts
-separator_open  = "["
-separator_close = "]"
-separator_style = { fg = "${green}", bg = "${background}" }
-
-# Modes
-mode_normal = { fg = "${background}", bg = "${green}", bold = true }
-mode_select = { fg = "${background}", bg = "${cyan}", bold = true }
-mode_unset  = { fg = "${background}", bg = "${magenta}", bold = true }
+# Flat rectangular spacers to match our retro look (no rounded capsules)
+sep_left  = { open = " [", close = "] " }
+sep_right = { open = " [", close = "] " }
 
 # Progress
 progress_label  = { fg = "${foreground}", bold = true }
@@ -44,31 +39,41 @@ progress_normal = { fg = "${blue}", bg = "${muted}" }
 progress_error  = { fg = "${red}", bg = "${muted}" }
 
 # Permissions
-permissions_t = { fg = "${blue}" } # Blue
-permissions_r = { fg = "${yellow}" } # Yellow
-permissions_w = { fg = "${red}" } # Red
-permissions_x = { fg = "${green}" } # Green
-permissions_s = { fg = "${muted}" } # Accent Alt
+perm_sep   = { fg = "${muted}" }
+perm_type  = { fg = "${blue}" }
+perm_read  = { fg = "${yellow}" }
+perm_write = { fg = "${red}" }
+perm_exec  = { fg = "${green}" }
+
+[mode]
+normal_main = { fg = "${background}", bg = "${accent}", bold = true }
+normal_alt  = { fg = "${foreground}", bg = "${muted}" }
+
+select_main = { fg = "${background}", bg = "${cyan}", bold = true }
+select_alt  = { fg = "${foreground}", bg = "${muted}" }
+
+unset_main  = { fg = "${background}", bg = "${magenta}", bold = true }
+unset_alt   = { fg = "${foreground}", bg = "${muted}" }
 
 [select]
-border   = { fg = "${blue}" }
-active   = { fg = "${green}", bold = true }
+border   = { fg = "${muted}" }
+active   = { fg = "${accent}", bold = true }
 inactive = { fg = "${foreground}" }
 
 [input]
-border   = { fg = "${green}" } # Green border
-title    = { fg = "${green}", bold = true }
+border   = { fg = "${muted}" } # Muted border
+title    = { fg = "${accent}", bold = true }
 value    = { fg = "${foreground}", bg = "${background}" } # Explicit dark bg, light text (Fixes invisible text)
-selected = { fg = "${background}", bg = "${green}", bold = true } # Dark text on Green bg
+selected = { fg = "${background}", bg = "${accent}", bold = true } # Dark text on Accent bg
 
 [completion]
-border   = { fg = "${green}" } # Green border
-active   = { fg = "${background}", bg = "${green}", bold = true } # Dark text on Green bg
+border   = { fg = "${muted}" } # Muted border
+active   = { fg = "${background}", bg = "${accent}", bold = true } # Dark text on Accent bg
 inactive = { fg = "${foreground}", bg = "${background}" }
 
 [which]
 mask            = { bg = "${background}" } # Explicit dark background to prevent bleed-through
-cand            = { fg = "${green}", bold = true } # The key to press (Green)
+bin             = { fg = "${accent}", bold = true } # The key to press (Accent)
 rest            = { fg = "${foreground}" } # The action description (White)
 desc            = { fg = "${magenta}" }
 separator       = " -> " # Raw ASCII arrow
@@ -77,7 +82,7 @@ separator_style = { fg = "${muted}" }
 [filetype]
 rules = [
     # Directories
-    { mime = "inode/directory", fg = "${blue}" }, # Blue
+    { mime = "inode/directory", fg = "${accent}" }, # Accent
 
     # Executables and Scripts
     { mime = "application/*executable", fg = "${green}" }, # Green
@@ -93,5 +98,6 @@ rules = [
     { mime = "application/x-7z-compressed", fg = "${magenta}" },
 
     # Fallback
-    { url = "*", fg = "${green}" }, # Default foreground
+    { url = "*/", fg = "${accent}" }, # Directories
+    { url = "*", fg = "${foreground}" }, # Default foreground
 ]
