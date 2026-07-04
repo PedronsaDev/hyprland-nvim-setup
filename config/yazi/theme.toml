@@ -1,0 +1,97 @@
+# ~/.config/yazi/theme.toml
+
+[mgr]
+cwd = { fg = "#8ba4b0" } # Blue
+
+# Hovered item
+hovered         = { fg = "#181616", bg = "#8a9a7b", bold = true } # Background on Green (Accent)
+preview_hovered = { underline = true }
+
+# Find
+find_keyword  = { fg = "#c4b28a" } # Yellow
+find_position = { fg = "#a292a3", bg = "reset" } # Magenta
+
+# Marker
+marker_copied   = { fg = "#8a9a7b", bg = "#8a9a7b" } # Green
+marker_cut      = { fg = "#c4746e", bg = "#c4746e" } # Red
+marker_selected = { fg = "#8ea4a2", bg = "#8ea4a2" } # Cyan
+
+[border]
+type = "plain"
+style  = { fg = "#8a9a7b" }
+
+[tabs]
+# Tab - Now uses Green for the active tab (tab_width is deleted!)
+active   = { fg = "#181616", bg = "#8a9a7b" }
+inactive = { fg = "#c5c9c5", bg = "#727169" }
+
+
+
+[status]
+# Raw ASCII separators instead of Nerd Fonts
+separator_open  = "["
+separator_close = "]"
+separator_style = { fg = "#8a9a7b", bg = "#181616" }
+
+# Modes
+mode_normal = { fg = "#181616", bg = "#8a9a7b", bold = true }
+mode_select = { fg = "#181616", bg = "#8ea4a2", bold = true }
+mode_unset  = { fg = "#181616", bg = "#a292a3", bold = true }
+
+# Progress
+progress_label  = { fg = "#c5c9c5", bold = true }
+progress_normal = { fg = "#8ba4b0", bg = "#727169" }
+progress_error  = { fg = "#c4746e", bg = "#727169" }
+
+# Permissions
+permissions_t = { fg = "#8ba4b0" } # Blue
+permissions_r = { fg = "#c4b28a" } # Yellow
+permissions_w = { fg = "#c4746e" } # Red
+permissions_x = { fg = "#8a9a7b" } # Green
+permissions_s = { fg = "#727169" } # Accent Alt
+
+[select]
+border   = { fg = "#8ba4b0" }
+active   = { fg = "#8a9a7b", bold = true }
+inactive = { fg = "#c5c9c5" }
+
+[input]
+border   = { fg = "#8a9a7b" } # Green border
+title    = { fg = "#8a9a7b", bold = true }
+value    = { fg = "#c5c9c5", bg = "#181616" } # Explicit dark bg, light text (Fixes invisible text)
+selected = { fg = "#181616", bg = "#8a9a7b", bold = true } # Dark text on Green bg
+
+[completion]
+border   = { fg = "#8a9a7b" } # Green border
+active   = { fg = "#181616", bg = "#8a9a7b", bold = true } # Dark text on Green bg
+inactive = { fg = "#c5c9c5", bg = "#181616" }
+
+[which]
+mask            = { bg = "#181616" } # Explicit dark background to prevent bleed-through
+cand            = { fg = "#8a9a7b", bold = true } # The key to press (Green)
+rest            = { fg = "#c5c9c5" } # The action description (White)
+desc            = { fg = "#a292a3" }
+separator       = " -> " # Raw ASCII arrow
+separator_style = { fg = "#727169" }
+
+[filetype]
+rules = [
+    # Directories
+    { mime = "inode/directory", fg = "#8ba4b0" }, # Blue
+
+    # Executables and Scripts
+    { mime = "application/*executable", fg = "#8a9a7b" }, # Green
+    { url = "*.sh", fg = "#8a9a7b" },
+    { url = "*.py", fg = "#8a9a7b" },
+    { url = "*.lua", fg = "#8a9a7b" },
+
+    # Archives
+    { mime = "application/zip", fg = "#a292a3" }, # Magenta
+    { mime = "application/gzip", fg = "#a292a3" },
+    { mime = "application/x-tar", fg = "#a292a3" },
+    { mime = "application/x-bzip*", fg = "#a292a3" },
+    { mime = "application/x-7z-compressed", fg = "#a292a3" },
+
+    # Fallback
+    { url = "*", fg = "#8a9a7b" }, # Default foreground
+]

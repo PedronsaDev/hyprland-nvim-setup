@@ -10,12 +10,13 @@ echo "Installing Dotfiles from $DOTFILES_DIR..."
 # Create base config directory if it doesn't exist
 mkdir -p "$CONFIG_DIR"
 
-# 1. Symlink ZSH
-echo "Symlinking .zshrc..."
+# 1. Symlink ZSH & TMUX
+echo "Symlinking .zshrc and .tmux.conf..."
 ln -sf "$DOTFILES_DIR/zshrc" "$HOME/.zshrc"
+ln -sf "$DOTFILES_DIR/tmux.conf" "$HOME/.tmux.conf"
 
 # 2. Symlink .config folders
-FOLDERS=("hypr" "waybar" "wofi" "nvim" "foot")
+FOLDERS=("hypr" "waybar" "fuzzel" "nvim" "alacritty" "yazi" "dunst" "fontconfig")
 
 for folder in "${FOLDERS[@]}"; do
     if [ -d "$DOTFILES_DIR/config/$folder" ]; then

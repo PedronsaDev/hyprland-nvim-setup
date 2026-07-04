@@ -1,0 +1,57 @@
+[global]
+    font = Terminus 12
+    allow_markup = yes
+    format = "<b>%s</b>\n%b"
+    sort = yes
+    indicate_hidden = yes
+    alignment = left
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    width = 300
+    height = 150
+    offset = 15x45
+    origin = top-right
+    shrink = no
+    transparency = 0
+    notification_limit = 5
+    idle_threshold = 0
+    monitor = 0
+    follow = mouse
+    sticky_history = yes
+    history_length = 20
+    dmenu = /usr/bin/fuzzel -d
+    browser = /usr/bin/firefox -new-tab
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    corner_radius = 0
+    force_xinerama = false
+    mouse_left_click = close_current
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
+    frame_width = 2
+
+[experimental]
+    per_monitor_dpi = false
+
+[urgency_low]
+    background = "${background_hex}"
+    foreground = "${foreground_hex}"
+    frame_color = "${muted_hex}"
+    timeout = 10
+
+[urgency_normal]
+    background = "${background_hex}"
+    foreground = "${foreground_hex}"
+    frame_color = "${accent_hex}"
+    timeout = 15
+
+[urgency_high]
+    background = "${background_hex}"
+    foreground = "${red_hex}"
+    frame_color = "${red_hex}"
+    timeout = 0

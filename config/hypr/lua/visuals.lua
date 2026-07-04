@@ -9,7 +9,7 @@ hl.config({
 	general = {
 		gaps_in = 5,
 		gaps_out = 10,
-		border_size = 1,
+		border_size = 2,
 		col = {
 			active_border = _G.colors.accent,
 			inactive_border = _G.colors.background,
@@ -21,7 +21,7 @@ hl.config({
 
 	-- https://wiki.hypr.land/Configuring/Variables/#decoration
 	decoration = {
-		rounding = 10,
+		rounding = 0,
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows
@@ -29,7 +29,7 @@ hl.config({
 		inactive_opacity = 1.00,
 
 		shadow = {
-			enabled = true,
+			enabled = false,
 			range = 4,
 			render_power = 3,
 			color = _G.colors.background,
@@ -37,7 +37,7 @@ hl.config({
 
 		-- https://wiki.hypr.land/Configuring/Variables/#blur
 		blur = {
-			enabled = true,
+			enabled = false,
 			size = 3,
 			passes = 1,
 			vibrancy = 0.1696,
@@ -46,7 +46,7 @@ hl.config({
 
 	-- https://wiki.hypr.land/Configuring/Variables/#animations
 	animations = {
-		enabled = true, -- yes, please :)
+		enabled = false, -- yes, please :)
 	},
 
 	-- See https://wiki.hypr.land/Configuring/Dwindle-Layout/ for more

@@ -1,0 +1,97 @@
+# ~/.config/yazi/theme.toml
+
+[mgr]
+cwd = { fg = "${blue}" } # Blue
+
+# Hovered item
+hovered         = { fg = "${background}", bg = "${green}", bold = true } # Background on Green (Accent)
+preview_hovered = { underline = true }
+
+# Find
+find_keyword  = { fg = "${yellow}" } # Yellow
+find_position = { fg = "${magenta}", bg = "reset" } # Magenta
+
+# Marker
+marker_copied   = { fg = "${green}", bg = "${green}" } # Green
+marker_cut      = { fg = "${red}", bg = "${red}" } # Red
+marker_selected = { fg = "${cyan}", bg = "${cyan}" } # Cyan
+
+[border]
+type = "plain"
+style  = { fg = "${green}" }
+
+[tabs]
+# Tab - Now uses Green for the active tab (tab_width is deleted!)
+active   = { fg = "${background}", bg = "${green}" }
+inactive = { fg = "${foreground}", bg = "${muted}" }
+
+
+
+[status]
+# Raw ASCII separators instead of Nerd Fonts
+separator_open  = "["
+separator_close = "]"
+separator_style = { fg = "${green}", bg = "${background}" }
+
+# Modes
+mode_normal = { fg = "${background}", bg = "${green}", bold = true }
+mode_select = { fg = "${background}", bg = "${cyan}", bold = true }
+mode_unset  = { fg = "${background}", bg = "${magenta}", bold = true }
+
+# Progress
+progress_label  = { fg = "${foreground}", bold = true }
+progress_normal = { fg = "${blue}", bg = "${muted}" }
+progress_error  = { fg = "${red}", bg = "${muted}" }
+
+# Permissions
+permissions_t = { fg = "${blue}" } # Blue
+permissions_r = { fg = "${yellow}" } # Yellow
+permissions_w = { fg = "${red}" } # Red
+permissions_x = { fg = "${green}" } # Green
+permissions_s = { fg = "${muted}" } # Accent Alt
+
+[select]
+border   = { fg = "${blue}" }
+active   = { fg = "${green}", bold = true }
+inactive = { fg = "${foreground}" }
+
+[input]
+border   = { fg = "${green}" } # Green border
+title    = { fg = "${green}", bold = true }
+value    = { fg = "${foreground}", bg = "${background}" } # Explicit dark bg, light text (Fixes invisible text)
+selected = { fg = "${background}", bg = "${green}", bold = true } # Dark text on Green bg
+
+[completion]
+border   = { fg = "${green}" } # Green border
+active   = { fg = "${background}", bg = "${green}", bold = true } # Dark text on Green bg
+inactive = { fg = "${foreground}", bg = "${background}" }
+
+[which]
+mask            = { bg = "${background}" } # Explicit dark background to prevent bleed-through
+cand            = { fg = "${green}", bold = true } # The key to press (Green)
+rest            = { fg = "${foreground}" } # The action description (White)
+desc            = { fg = "${magenta}" }
+separator       = " -> " # Raw ASCII arrow
+separator_style = { fg = "${muted}" }
+
+[filetype]
+rules = [
+    # Directories
+    { mime = "inode/directory", fg = "${blue}" }, # Blue
+
+    # Executables and Scripts
+    { mime = "application/*executable", fg = "${green}" }, # Green
+    { url = "*.sh", fg = "${green}" },
+    { url = "*.py", fg = "${green}" },
+    { url = "*.lua", fg = "${green}" },
+
+    # Archives
+    { mime = "application/zip", fg = "${magenta}" }, # Magenta
+    { mime = "application/gzip", fg = "${magenta}" },
+    { mime = "application/x-tar", fg = "${magenta}" },
+    { mime = "application/x-bzip*", fg = "${magenta}" },
+    { mime = "application/x-7z-compressed", fg = "${magenta}" },
+
+    # Fallback
+    { url = "*", fg = "${green}" }, # Default foreground
+]

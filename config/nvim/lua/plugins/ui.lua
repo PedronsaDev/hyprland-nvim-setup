@@ -13,10 +13,12 @@ return {
     priority = 1000,
     config = function()
       -- If the plugin requires setup(), it will run with defaults or we skip it
+      local module_name = nvim_plugin:match("/([^%.]+)") or nvim_plugin
       pcall(function()
-        require(nvim_theme).setup {
+        require(module_name).setup {
+          theme = nvim_theme:match('%-(.*)') or 'wave', -- e.g. kanagawa-dragon -> dragon
           background = 'hard',
-          italics = true,
+          italics = false,
         }
       end)
       vim.cmd.colorscheme(nvim_theme)
@@ -33,7 +35,7 @@ return {
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'auto',
+          theme = nvim_theme:match('kanagawa') and 'kanagawa' or 'auto',
           component_separators = { left = '|', right = '|' },
           section_separators = { left = '', right = '' },
           globalstatus = true,

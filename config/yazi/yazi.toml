@@ -1,0 +1,37 @@
+# ~/.config/yazi/yazi.toml
+
+[manager]
+ratio          = [ 1, 4, 3 ] # Minimal parent, large current dir, large preview
+sort_by        = "alphabetical"
+sort_sensitive = false
+sort_reverse   = false
+sort_dir_first = true
+linemode       = "size" # Only show the file size next to the name
+show_hidden    = true   # Coders usually need to see dotfiles (.git, .env, etc.)
+show_symlink   = true
+scrolloff      = 5      # Keep 5 lines above/below cursor (like Neovim's scrolloff)
+
+[preview]
+tab_size        = 4
+max_width       = 1000
+max_height      = 1000
+cache_dir       = ""
+image_filter    = "triangle"
+image_quality   = 75
+sixel_fraction  = 15
+ueberzug_scale  = 1
+ueberzug_offset = [ 0, 0, 0, 0 ]
+
+[plugin]
+# Optional: if you use custom linemodes or plugins, define them here.
+
+[opener]
+swayimg = [
+	{ run = 'swayimg "%*"', orphan = true, desc = "Open image with swayimg" }
+]
+
+[open]
+prepend_rules = [
+	{ mime = "image/*", use = "swayimg" },
+	{ url = "*.tga",    use = "swayimg" }
+]

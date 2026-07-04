@@ -15,6 +15,17 @@ return {
       { 'j-hui/fidget.nvim', opts = {} },
     },
     config = function()
+      -- Set up beautiful, clean diagnostics signs
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = ' ',
+            [vim.diagnostic.severity.WARN] = ' ',
+            [vim.diagnostic.severity.INFO] = ' ',
+            [vim.diagnostic.severity.HINT] = ' ',
+          },
+        },
+      })
       -- Define sharp borders for LSP floating windows without using deprecated vim.lsp.with
       local orig_hover = vim.lsp.handlers['textDocument/hover']
       vim.lsp.handlers['textDocument/hover'] = function(err, result, ctx, config)
@@ -111,7 +122,7 @@ return {
             '--header-insertion=iwyu',
             '--completion-style=detailed',
             '--function-arg-placeholders',
-            '--fallback-style=llvm',
+            '--fallback-style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}',
           },
           init_options = {
             usePlaceholders = true,
@@ -202,6 +213,11 @@ return {
         lua = { 'stylua' },
         c = { 'clang-format' },
         cpp = { 'clang-format' },
+      },
+      formatters = {
+        ['clang-format'] = {
+          prepend_args = { '-fallback-style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}' },
+        },
       },
     },
   },

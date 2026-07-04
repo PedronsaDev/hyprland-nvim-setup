@@ -1,64 +1,65 @@
 @import url("../theme.css");
 
-/* Global Reset: Sharp edges, monospace only */
+/* Global Reset: Sharp edges, pixel-perfect alignment */
 * {
     font-family: "Terminus", "Fira Code", monospace;
     font-size: 16px;
+    font-weight: bold;
     border: none;
     border-radius: 0;
     min-height: 0;
     margin: 0;
     padding: 0;
     box-shadow: none;
+    text-shadow: none;
 }
 
-/* Base Bar: Charcoal background with a raw green bottom border */
+/* Base Bar: Flat background with a clean bottom border */
 window#waybar {
     background-color: @background;
-    border-bottom: 1px solid @muted;
+    border-bottom: 2px solid @muted;
     color: @foreground;
 }
 
-/* Center: Active Window Name */
-#window {
-    color: @foreground;
-    font-weight: bold;
-    padding: 0 10px;
-}
-
-/* Left: Workspaces */
+/* Left Section: Workspaces styled as clean, terminal-like tags */
 #workspaces button {
     color: @muted;
     background: transparent;
-    padding: 0 5px;
+    padding: 0 10px;
     font-weight: normal;
+    transition: all 0.1s ease;
 }
 
+/* Active tag: Inverted color block (dwm/fzf style) */
 #workspaces button.active {
-    color: @accent; /* Deep accent for the active workspace */
+    color: @background;
+    background-color: @accent;
     font-weight: bold;
-    border-bottom: 1px solid @accent;
 }
 
 #workspaces button:hover {
     color: @accent;
-    box-shadow: inherit;
-    text-shadow: inherit;
-    border-bottom: 1px solid @accent;
+    background-color: @background_alt;
 }
 
-/* Right: System Info & Clock */
+/* Center Section: Active Window Name */
+#window {
+    color: @foreground;
+    font-weight: normal;
+    padding: 0 10px;
+}
+
+/* Right Section: System info blocks separated by 1px solid dividers */
 #pulseaudio {
-    padding: 0 5px 0 10px;
-    color: @accent;
-    background-color: @background;
+    padding: 0 15px;
+    color: @yellow;
     border-left: 1px solid @muted;
 }
 
 #clock {
-    padding: 0 10px 0 0;
-    color: @accent;
-    background-color: @background;
+    padding: 0 15px;
+    color: @blue;
+    border-left: 1px solid @muted;
 }
 
 /* Warning state for muted audio */

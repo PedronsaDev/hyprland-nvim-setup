@@ -5,7 +5,7 @@
 -- Window operations
 hl.bind(_G.mainMod .. " + RETURN", hl.dsp.window.fullscreen())
 hl.bind(_G.mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(_G.mainMod .. " + J", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg orientationcycle"))
+hl.bind(_G.mainMod .. " + J", hl.dsp.layout("orientationcycle"))
 hl.bind(_G.mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 
 -- Move focus with mainMod + arrow keys

@@ -1,0 +1,17 @@
+# Alacritty Terminal Configuration
+[general]
+import = ["~/.config/alacritty/theme.toml"]
+
+[font]
+normal = { family = "Terminess Nerd Font Mono", style = "Regular" }
+bold = { family = "Terminess Nerd Font Mono", style = "Bold" }
+italic = { family = "Terminess Nerd Font Mono", style = "Regular" }
+bold_italic = { family = "Terminess Nerd Font Mono", style = "Bold" }
+size = 15.0
+
+[window]
+padding = { x = 15, y = 15 }
+decorations = "none"
+
+[keyboard]
+bindings = []

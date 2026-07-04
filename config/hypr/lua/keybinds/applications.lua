@@ -29,7 +29,7 @@ hl.bind(_G.mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(_G.printSc))
 hl.bind(_G.mainMod .. " + Y", hl.dsp.exec_cmd(_G.uFm))
 
 -- Clipboard History
-hl.bind(_G.mainMod .. " + V", hl.dsp.exec_cmd("sh -c 'cliphist list | wofi -dmenu | cliphist decode | wl-copy'"))
+hl.bind(_G.mainMod .. " + V", hl.dsp.exec_cmd("sh -c 'cliphist list | fuzzel -d | cliphist decode | wl-copy'"))
 
 -- Force Close Application
 hl.bind(_G.mainMod .. " + C", hl.dsp.window.close())

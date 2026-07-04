@@ -1,8 +1,7 @@
 --===========================================================
--- 
+--
 -- CONFIG MADE BY PEDRONSADEV
 -- EDIT THIS CONFIG ACCORDING TO YOUR TASTE :)
--- (Migrated to Lua Syntax)
 --
 --===========================================================
 
@@ -38,9 +37,9 @@ require("keybinds.media")
 
 -- XWayland Settings
 hl.config({
-    xwayland = {
-        force_zero_scaling = true
-    }
+	xwayland = {
+		force_zero_scaling = true,
+	},
 })
 
 --===========================================================

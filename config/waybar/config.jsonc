@@ -7,22 +7,22 @@
   "modules-center": ["hyprland/window"],
   "modules-right": ["pulseaudio", "clock"],
   "hyprland/workspaces": {
-    "format": "[{name}]",
+    "format": "{name}",
     "disable-scroll": true,
-    "all-outputs": true,
+    "all-outputs": true
   },
   "hyprland/window": {
-    "format": "{title}",
-    "max-length": 50,
+    "format": "[ {title} ]",
+    "max-length": 50
   },
   "clock": {
-    "format": "| {:%H:%M:%S | %Y-%m-%d}",
-    "interval": 1,
+    "format": "{:%H:%M:%S  %Y-%m-%d}",
+    "interval": 1
   },
   "pulseaudio": {
     "scroll-step": 5,
     "format": "vol:{volume:2}%",
     "format-muted": "vol:(M)",
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-  },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  }
 }
