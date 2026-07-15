@@ -54,6 +54,9 @@ return {
           end
 
           -- Standard LSP mappings
+          map('K', vim.lsp.buf.hover, 'Hover Documentation')
+          map('gK', vim.lsp.buf.signature_help, 'Signature Help')
+          map('<C-k>', vim.lsp.buf.signature_help, 'Signature Help', 'i')
           map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
           map('gra', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })

@@ -1,5 +1,6 @@
 -- Completion configuration
 -- Uses blink.cmp for blazing fast code completions
+-- Copilot is integrated as a blink source so LSP and AI share one unified dropdown
 
 return {
   {
@@ -26,6 +27,8 @@ return {
           },
         },
       },
+      -- Copilot as a blink source (unified dropdown, no ghost text conflicts)
+      { 'giuxtaposition/blink-cmp-copilot' },
     },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -44,14 +47,22 @@ return {
           auto_show = true,
           auto_show_delay_ms = 250,
         },
-        -- Sleek ghost text preview
+        -- Disable blink ghost text — Copilot handles AI suggestions in dropdown
         ghost_text = {
-          enabled = true,
+          enabled = false,
         },
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+        providers = {
+          copilot = {
+            name = 'copilot',
+            module = 'blink-cmp-copilot',
+            score_offset = 100, -- Copilot suggestions float to the top
+            async = true,
+          },
+        },
       },
 
       snippets = {

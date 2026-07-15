@@ -14,14 +14,12 @@ hl.config({
 			active_border = _G.colors.accent,
 			inactive_border = _G.colors.background,
 		},
-
-		-- Swap this from dwindle to master
 		layout = "master",
 	},
 
 	-- https://wiki.hypr.land/Configuring/Variables/#decoration
 	decoration = {
-		rounding = 0,
+		rounding = 5,
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows
@@ -46,7 +44,7 @@ hl.config({
 
 	-- https://wiki.hypr.land/Configuring/Variables/#animations
 	animations = {
-		enabled = false, -- yes, please :)
+		enabled = false,
 	},
 
 	-- See https://wiki.hypr.land/Configuring/Dwindle-Layout/ for more

@@ -5,7 +5,7 @@
 -- See https://wiki.hypr.land/Configuring/Keywords/
 
 -- Set programs that you use
-_G.terminal = "alacritty -e tmux new-session -A -s main"
+_G.terminal = "alacritty"
 _G.fileManager = "dolphin"
 _G.menu = "fuzzel"
 _G.browser = "firefox"

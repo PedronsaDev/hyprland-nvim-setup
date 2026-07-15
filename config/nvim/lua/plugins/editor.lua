@@ -12,6 +12,7 @@ return {
       delay = 0,
       icons = { mappings = vim.g.have_nerd_font },
       spec = {
+        { '<leader>a', group = '[A]I Assistant', mode = { 'n', 'v' } },
         { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>c', group = '[C]Make/Cpp' },
